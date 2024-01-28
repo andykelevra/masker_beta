@@ -1,4 +1,4 @@
-//	func spamMasker(s, spam string) string {
+//	func SpamMasker(s, spam string) string {
 //		index := strings.Index(s, spam)
 //		if index == -1 {
 //			return s
@@ -24,7 +24,7 @@ import (
 	"os"
 )
 
-func spamMasker(s, spam string) string {
+func SpamMasker(s, spam string) string {
 	bytes := []byte(s)
 	subBytes := []byte(spam)
 
@@ -55,6 +55,6 @@ func main() {
 	myscanner := bufio.NewScanner(os.Stdin)
 	myscanner.Scan()
 	s := myscanner.Text()
-	maskedString := spamMasker(s, substring)
+	maskedString := SpamMasker(s, substring)
 	fmt.Println(maskedString)
 }
