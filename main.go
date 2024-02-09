@@ -37,7 +37,7 @@ func SpamMasker(s, spam string) string {
 		}
 		if match {
 			for j := i + len(spam); j < len(s); j++ {
-				if bytes[j] != ' ' {
+				if bytes[j] != ' ' && j < len(s) {
 					bytes[j] = '*'
 				} else {
 					break
