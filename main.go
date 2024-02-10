@@ -37,7 +37,7 @@ func SpamMasker(s, spam string) string {
 		}
 		if match {
 			for j := i + len(spam); j < len(s); j++ {
-				if bytes[j] != ' ' {
+				if bytes[j] != ' ' && j < len(s) {
 					bytes[j] = '*'
 				} else {
 					break
@@ -51,10 +51,10 @@ func SpamMasker(s, spam string) string {
 }
 
 func main() {
-	substring := "http://"
+	spam := "http://"
 	myscanner := bufio.NewScanner(os.Stdin)
 	myscanner.Scan()
 	s := myscanner.Text()
-	maskedString := SpamMasker(s, substring)
+	maskedString := SpamMasker(s, spam)
 	fmt.Println(maskedString)
 }
